@@ -1,0 +1,37 @@
+<h1>Employee Data</h1>
+
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/register-employee']">Create New</a>
+</p>
+
+<table class='table' *ngIf="empList">
+  <thead>
+    <tr>
+      <th>EmployeeId</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Address</th>
+      <th>Qualification</th>
+      <th>Contact Number</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empList">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.surname }}</td>
+      <td>{{ emp.address }}</td>
+      <td>{{ emp.qualification }}</td>
+      <td>{{ emp.contactNumber }}</td>
+      <td>{{ emp.departmentName }}</td>
+      <td>
+      <td>
+        <a [routerLink]="['/employee/edit/', emp.id]">Edit</a> |
+        <a [routerLink]="" (click)="delete(emp.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
